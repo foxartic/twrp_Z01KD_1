@@ -25,12 +25,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, device/asus/Z01K/device.mk)
 
 # Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
-$(call inherit-product, vendor/omni/config/gsm.mk)
+$(call inherit-product, vendor/twrp/config/common.mk)
+$(call inherit-product, vendor/twrp/config/gsm.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := Z01K
-PRODUCT_NAME := omni_Z01K
+PRODUCT_NAME := twrp_Z01K
 PRODUCT_BRAND := asus
 PRODUCT_MODEL := ASUS_Z01KD
 PRODUCT_MANUFACTURER := asus
