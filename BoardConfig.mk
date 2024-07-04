@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/asus/ASUS_Z01KD
+DEVICE_PATH := device/asus/ASUS_Z01K
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
