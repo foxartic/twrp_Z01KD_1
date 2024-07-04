@@ -17,4 +17,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-     $(LOCAL_DIR)/omni_ASUS_Z01KD_1.mk
+     $(LOCAL_DIR)/omni_Z01K.mk
+
+COMMON_LUNCH_CHOICES := \
+    omni_Z01K-user \
+    omni_Z01K-userdebug \
+    omni_Z01K-eng
