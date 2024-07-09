@@ -17,9 +17,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-     $(LOCAL_DIR)/twrp_Z01K.mk
+     $(LOCAL_DIR)/omni_Z01K.mk
 
 COMMON_LUNCH_CHOICES := \
-    twrp_Z01K-user \
-    twrp_Z01K-userdebug \
-    twrp_Z01K-eng
+    omni_Z01K-user \
+    omni_Z01K-userdebug \
+    omni_Z01K-eng
