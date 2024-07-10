@@ -21,5 +21,3 @@ LOCAL_PATH := device/asus/Z01K
 TARGET_PREBUILT_KERNEL := device/asus/Z01K/zImage
 PRODUCT_COPY_FILES += \
     $(TARGET_PREBUILT_KERNEL):kernel
-
-PRODUCT_COPY_FILES += device/asus/Z01K/recovery.fstab
