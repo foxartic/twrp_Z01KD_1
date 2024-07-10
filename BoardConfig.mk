@@ -16,6 +16,8 @@
 # limitations under the License.
 #
 
+DEVICE_PATH := device/asus/Z01K
+
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 BUILD_BROKEN_DUP_RULES := true
