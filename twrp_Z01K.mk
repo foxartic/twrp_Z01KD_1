@@ -24,7 +24,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Inherit from ASUS_Z01KD_1 device
 $(call inherit-product, device/asus/Z01K/device.mk)
 
-# Inherit some common Omni stuff.
+# Inherit some common OrangeFox stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Device identifier. This must come after all inclusions
