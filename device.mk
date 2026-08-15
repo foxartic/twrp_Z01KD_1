@@ -18,6 +18,6 @@
 
 LOCAL_PATH := device/asus/Z01K
 
-TARGET_PREBUILT_KERNEL := device/asus/Z01K/zImage
+TARGET_PREBUILT_KERNEL := device/asus/Z01K/Image.gz-dtb
 PRODUCT_COPY_FILES += \
     $(TARGET_PREBUILT_KERNEL):kernel
