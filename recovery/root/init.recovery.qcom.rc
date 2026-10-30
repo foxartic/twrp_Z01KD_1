@@ -1,0 +1,10 @@
+import init.recovery.qcom_decrypt.rc
+# Device-specific recovery init for ASUS Z01K (qcom).
+# USB: configfs stack lives in init.recovery.usb.rc (ported from the proven
+# shakalaca Z01K tree); its handlers require sys.usb.configfs/sys.usb.controller,
+# which stock/omni vendor init normally provides - set them here.
+on init
+    setprop sys.usb.configfs 1
+    setprop sys.usb.controller ${ro.boot.usbcontroller}
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
