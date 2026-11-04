@@ -20,6 +20,7 @@ DEVICE_PATH := device/asus/Z01K
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 BUILD_BROKEN_DUP_RULES := true
 
 # Architecture
@@ -52,12 +53,13 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3 buildvariant=userdebug
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_FLASH_BLOCK_SIZE := 262144 
-BOARD_KERNEL_IMAGE_NAME := 
+BOARD_KERNEL_IMAGE_NAME := zImage
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/asus/ASUS_Z01KD_1
@@ -80,10 +82,32 @@ TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_DENSITY := 480
 
+# Recovery
+RECOVERY_VARIANT := twrp
+
 # TWRP Configuration
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
+TW_NO_SCREEN_BLANK := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 
+TW_INCLUDE_CRYPTO := true
+TARGET_PROVIDES_KEYMASTER := true
+RECOVERY_SDCARD_ON_DATA := true
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+
+TARGET_RECOVERY_DEVICE_MODULES := \
+    libbinder \
+    libgui \
+    libui \
+    qseecomd
+
+
+# OrangeFox size control: recovery partition is 32 MiB on this device
+FOX_DRASTIC_SIZE_REDUCTION := 1
+FOX_EXTREME_SIZE_REDUCTION := 1
+
+TW_MAX_BRIGHTNESS := 1023
+TW_DEFAULT_BRIGHTNESS := 511
