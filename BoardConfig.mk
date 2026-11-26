@@ -52,13 +52,13 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3 buildvariant=userdebug
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3 buildvariant=userdebug androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_FLASH_BLOCK_SIZE := 262144 
-BOARD_KERNEL_IMAGE_NAME := 
+BOARD_KERNEL_IMAGE_NAME := zImage
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/asus/ASUS_Z01KD_1
@@ -92,14 +92,14 @@ OF_MAINTAINER_RECOVERY_VERSION := 12.1
 OF_MAINTAINER := FoxArtic
 OF_SCREEN_H := 2160
 OF_ALLOW_DISABLE_NAVBAR := 1
-OF_FLASHLIGHT_ENABLE := 1
+OF_FLASHLIGHT_ENABLE := 0
 OF_USE_TWRP_SAR_DETECT := 1
 OF_PATCH_AVB20 := 1
 OF_DONT_PATCH_ENCRYPTED_DEVICE := 1
 OF_KEEP_FORCED_ENCRYPTION := 1
 OF_CLASSIC_LEDS_FUNCTION := 1
-OF_USE_MAGISKBOOT := 1
-OF_USE_MAGISKBOOT_FOR_ALL_PATCHES := 1
+OF_USE_MAGISKBOOT := 0
+OF_USE_MAGISKBOOT_FOR_ALL_PATCHES := 0
 
 # Removed incompatible flag: OF_SUPPORT_ALL_BLOCK_OTA_UPDATES
 OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
