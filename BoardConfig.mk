@@ -72,8 +72,6 @@ TARGET_BOARD_PLATFORM := sdm660
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno512
 
 # Hack: prevent anti rollback
-PLATFORM_SECURITY_PATCH := 2099-12-31
-PLATFORM_VERSION := 12.1.0
 VENDOR_SECURITY_PATCH := 2099-12-31
 
 # OrangeFox Configuration
@@ -112,3 +110,6 @@ OF_SKIP_MULTIUSER_FOLDERS_BACKUP := 1
 
 # Size reduction
 OF_USE_LZMA_COMPRESSION := 1
+
+# Include TWRP soong vars
+include vendor/twrp/config/BoardConfigSoong.mk
