@@ -18,6 +18,5 @@
 
 LOCAL_PATH := device/asus/Z01K
 
-TARGET_PREBUILT_KERNEL := device/asus/Z01K/zImage
-PRODUCT_COPY_FILES += \
-    $(TARGET_PREBUILT_KERNEL):kernel
+# Kernel is built from source: kernel/asus/Z01KD_1 (lineage-a11), Image.gz-dtb
+# (do not copy the old prebuilt zImage)

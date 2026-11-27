@@ -52,17 +52,19 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3 buildvariant=userdebug androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3 buildvariant=userdebug androidboot.selinux=permissive log_buf_len=16M
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_FLASH_BLOCK_SIZE := 262144 
-BOARD_KERNEL_IMAGE_NAME := zImage
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/asus/ASUS_Z01KD_1
-TARGET_KERNEL_CONFIG := ASUS_Z01KD_1_defconfig
+TARGET_KERNEL_SOURCE := kernel/asus/Z01KD_1
+TARGET_KERNEL_CONFIG := ze554kl-user-sdm660-perf_defconfig
+TARGET_KERNEL_CLANG_COMPILE := false
+TARGET_KERNEL_ADDITIONAL_FLAGS := HOSTCC=/home/harry/fox_12.1/prebuilts/clang/host/linux-x86/clang-r416183b1/bin/clang
 
 # Bootloader
 TARGET_NO_BOOTLOADER := true
@@ -81,8 +83,14 @@ TW_EXTRA_LANGUAGES := false
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
-TW_MAX_BRIGHTNESS := 255
-TW_DEFAULT_BRIGHTNESS := 128
+TW_MAX_BRIGHTNESS := 1023
+TW_DEFAULT_BRIGHTNESS := 511
+
+TARGET_RECOVERY_DEVICE_MODULES := \
+    libbinder \
+    libgui \
+    libui \
+    qseecomd
 
 # OrangeFox specific flags
 FOX_MAINTAINER_PATCH_VERSION := 1
@@ -110,7 +118,8 @@ OF_AB_DEVICE := 0
 OF_SKIP_MULTIUSER_FOLDERS_BACKUP := 1
 
 # Size reduction
-OF_USE_LZMA_COMPRESSION := 1
+# LZMA ramdisk does not boot on the ASUS bootloader (sticks at ASUS logo)
+OF_USE_LZMA_COMPRESSION := 0
 
 # Include TWRP soong vars
 include vendor/twrp/config/BoardConfigSoong.mk

@@ -1,0 +1,7 @@
+import /init.recovery.qcom_decrypt.rc
+
+on init
+    setprop sys.usb.configfs 1
+    setprop sys.usb.controller ${ro.boot.usbcontroller}
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
